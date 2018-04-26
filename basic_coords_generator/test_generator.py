@@ -5,8 +5,6 @@
 
 import inspect
 
-import pytest
-
 from my_scripts.basic_coords_generator.generator import relative_coords
 
 
@@ -22,7 +20,6 @@ def test_is_a_generator():
 
 def test_return_a_list():
     """Test if relative_coords return a list."""
-    with pytest.raises(Error)
     assert isinstance(create_generator(), list)
 
 
@@ -30,6 +27,7 @@ def test_list_contains_tuples():
     """Test if the returned list contains tuple."""
     generator = create_generator()
 
+    assert generator != []
     for value in generator:
         assert isinstance(value, tuple)
 

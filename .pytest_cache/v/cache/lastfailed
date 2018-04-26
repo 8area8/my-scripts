@@ -1,1 +1,3 @@
-{}
+{
+  "basic_coords_generator/test_generator.py::test_list_contains_tuples": true
+}
