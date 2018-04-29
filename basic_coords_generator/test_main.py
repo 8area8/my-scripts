@@ -1,25 +1,28 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-"""Test in main file: relative_coords."""
+"""Test in main file: possible_coordinates."""
 
 import inspect
 
-from my_scripts.basic_coords_generator.main import relative_coords
+from my_scripts.basic_coords_generator.main import possible_coordinates
 
 
 def return_first_yield():
-    """Create an iterator from relative_coords; return the first Next value."""
-    return next(relative_coords())
+    """Create an iterator from possible_coordinates.
+
+    return the first Next value.
+    """
+    return next(possible_coordinates())
 
 
 def test_is_a_generator():
-    """Test if relative_coords is a generator."""
-    assert inspect.isgeneratorfunction(relative_coords)
+    """Test if possible_coordinates is a generator."""
+    assert inspect.isgeneratorfunction(possible_coordinates)
 
 
 def test_return_a_list():
-    """Test if relative_coords return a list."""
+    """Test if possible_coordinates return a list."""
     assert isinstance(return_first_yield(), list)
 
 
@@ -55,7 +58,7 @@ def test_tuple_result_one():
 
 def test_others_tuple_results():
     """Test others results: display them."""
-    coords_generator = relative_coords()
+    coords_generator = possible_coordinates()
     max_moove = 10
 
     print('\n')

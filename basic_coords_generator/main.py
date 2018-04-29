@@ -4,11 +4,12 @@
 """Used to moove an object in a 2D Cases-Map."""
 
 
-def relative_coords():
+def possible_coordinates():
     """Return lists of coordinates, correspond to a moove distance."""
+    MAX_ITERATION = 100  # secure the generator
     max_moove = 0
 
-    while True:
+    for _ in range(MAX_ITERATION):
         max_moove += 1
         middle_mooves = (range(max_moove))
         coordinates_group = set()

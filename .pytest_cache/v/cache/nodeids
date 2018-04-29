@@ -3,6 +3,6 @@
   "basic_coords_generator/test_main.py::test_return_a_list",
   "basic_coords_generator/test_main.py::test_list_contains_tuples",
   "basic_coords_generator/test_main.py::test_tuples_contains_two_numbers",
-  "basic_coords_generator/test_main.py::test_tuple_results_one",
+  "basic_coords_generator/test_main.py::test_tuple_result_one",
   "basic_coords_generator/test_main.py::test_others_tuple_results"
 ]
