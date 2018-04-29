@@ -9,7 +9,7 @@ from my_scripts.basic_coords_generator.main import relative_coords
 
 
 def return_first_yield():
-    """Create a generator from relative_coords; return the first Next value."""
+    """Create an iterator from relative_coords; return the first Next value."""
     return next(relative_coords())
 
 

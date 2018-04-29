@@ -1,14 +1,11 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-"""The source file."""
+"""Used to moove an object in a 2D Cases-Map."""
 
 
 def relative_coords():
-    """Return lists of coordinates, correspond to a moove distance.
-
-    Used to moove an object in a 2D Cases_Map.
-    """
+    """Return lists of coordinates, correspond to a moove distance."""
     max_moove = 0
 
     while True:
