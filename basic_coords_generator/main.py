@@ -18,7 +18,6 @@ def relative_coordinates(start=1, end=100):
         for x in range(distance + 1):
             y = distance - x
 
-            possible_mooves = set(product((x, -x), (y, -y)))
-            coordinates.update(possible_mooves)
+            coordinates.update(set(product((x, -x), (y, -y))))
 
         yield coordinates
