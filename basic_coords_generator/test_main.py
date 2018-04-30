@@ -28,10 +28,8 @@ def test_relative_coords_distance_1(distance, expected):
 
 def test_and_display_results():
     """Display the results."""
-    generator = relative_coordinates(end=10)
-
     print('\n')
-    for value in generator:
+    for value in relative_coordinates(end=10):
         print(sorted(value,
                      key=lambda x: max(abs(x[0]), abs(x[1])),
                      reverse=True))

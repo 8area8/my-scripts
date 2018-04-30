@@ -1,6 +1,0 @@
-[
-  "basic_coords_generator/test_main.py::test_relative_coordinates_returns_collection",
-  "basic_coords_generator/test_main.py::test_relative_coords_distance_1[1-expected0]",
-  "basic_coords_generator/test_main.py::test_relative_coords_distance_1[2-expected1]",
-  "basic_coords_generator/test_main.py::test_and_display_results"
-]
