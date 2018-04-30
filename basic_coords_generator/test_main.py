@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-"""Test in main file: possible_coordinates."""
+"""Test in main file: relative_coordinates."""
 
 from collections.abc import Collection
 import pytest
@@ -28,14 +28,10 @@ def test_relative_coords_distance_1(distance, expected):
 
 def test_and_display_results():
     """Display the results."""
-    coords_generator = relative_coordinates()
-    max_moove = 10
+    generator = relative_coordinates(end=10)
 
     print('\n')
-    for i, value in enumerate(coords_generator):
-        if i == max_moove:
-            break
-
+    for value in generator:
         print(sorted(value,
                      key=lambda x: max(abs(x[0]), abs(x[1])),
                      reverse=True))
