@@ -3,24 +3,22 @@
 
 """Used to moove an object in a 2D Cases-Map."""
 
+from itertools import product
 
-def possible_coordinates():
-    """Return lists of coordinates, correspond to a moove distance."""
-    MAX_ITERATION = 100  # secure the generator
-    max_moove = 0
 
-    for _ in range(MAX_ITERATION):
-        max_moove += 1
-        middle_mooves = (range(max_moove))
-        coordinates_group = set()
+def relative_coordinates(start=1, end=100):
+    """Return relative coordinates from 'start' to 'end'.
 
-        for x in middle_mooves:
-            y = max_moove - x
+    We use manhattan distance.
+    (thanks to Dan737)
+    """
+    for distance in range(start, end):
+        coordinates = set()
 
-            possible_mooves = {
-                (x, y), (y, x), (-x, y), (-y, x),
-                (x, -y), (y, -x), (-x, -y), (-y, -x)}  # TRICK: this is a Set
+        for x in range(distance + 1):
+            y = distance - x
 
-            coordinates_group.update(possible_mooves)
+            possible_mooves = set(product((x, -x), (y, -y)))
+            coordinates.update(possible_mooves)
 
-        yield list(coordinates_group)
+        yield coordinates

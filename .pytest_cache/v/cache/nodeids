@@ -1,8 +1,6 @@
 [
-  "basic_coords_generator/test_main.py::test_is_a_generator",
-  "basic_coords_generator/test_main.py::test_return_a_list",
-  "basic_coords_generator/test_main.py::test_list_contains_tuples",
-  "basic_coords_generator/test_main.py::test_tuples_contains_two_numbers",
-  "basic_coords_generator/test_main.py::test_tuple_result_one",
-  "basic_coords_generator/test_main.py::test_others_tuple_results"
+  "basic_coords_generator/test_main.py::test_relative_coordinates_returns_collection",
+  "basic_coords_generator/test_main.py::test_relative_coords_distance_1[1-expected0]",
+  "basic_coords_generator/test_main.py::test_relative_coords_distance_1[2-expected1]",
+  "basic_coords_generator/test_main.py::test_and_display_results"
 ]

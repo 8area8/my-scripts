@@ -3,62 +3,32 @@
 
 """Test in main file: possible_coordinates."""
 
-import inspect
+from collections.abc import Collection
+import pytest
 
-from my_scripts.basic_coords_generator.main import possible_coordinates
-
-
-def return_first_yield():
-    """Create an iterator from possible_coordinates.
-
-    return the first Next value.
-    """
-    return next(possible_coordinates())
+from my_scripts.basic_coords_generator.main import relative_coordinates
 
 
-def test_is_a_generator():
-    """Test if possible_coordinates is a generator."""
-    assert inspect.isgeneratorfunction(possible_coordinates)
+def test_relative_coordinates_returns_collection():
+    """Test if the value is a 'sized iterable container class'."""
+    assert isinstance([relative_coordinates(2, 2)], Collection)
 
 
-def test_return_a_list():
-    """Test if possible_coordinates return a list."""
-    assert isinstance(return_first_yield(), list)
+@pytest.mark.parametrize("distance, expected", [
+    (1, {(1, 0), (-1, 0), (0, 1), (0, -1)}),
+    (2, {(1, 0), (-1, 0), (0, 1), (0, -1),
+         (2, 0), (1, 1), (0, 2), (-1, 1),
+         (-2, 0), (-1, -1), (0, -2), (1, -1)}), ])
+def test_relative_coords_distance_1(distance, expected):
+    """Test if results correspond to the expected values."""
+    result = relative_coordinates(distance, distance)
+    for value in result:
+        assert value in expected
 
 
-def test_list_contains_tuples():
-    """Test if the returned list contains tuple."""
-    first_yield = return_first_yield()
-
-    assert first_yield != []
-    for value in first_yield:
-        assert isinstance(value, tuple)
-
-
-def test_tuples_contains_two_numbers():
-    """Test if tuples contains two int numbers."""
-    first_yield = return_first_yield()
-
-    for a_tuple in first_yield:
-        assert len(a_tuple) == 2
-
-        for number in a_tuple:
-            assert isinstance(number, int)
-
-
-def test_tuple_result_one():
-    """Test if the tuples (coordinates) correspond to a moove by one case."""
-    first_yield = return_first_yield()
-
-    possible_mooves = ((1, 0), (-1, 0), (0, 1), (0, -1))
-
-    for a, b in first_yield:
-        assert (a, b) in possible_mooves
-
-
-def test_others_tuple_results():
-    """Test others results: display them."""
-    coords_generator = possible_coordinates()
+def test_and_display_results():
+    """Display the results."""
+    coords_generator = relative_coordinates()
     max_moove = 10
 
     print('\n')
@@ -66,5 +36,6 @@ def test_others_tuple_results():
         if i == max_moove:
             break
 
-        value.sort(key=lambda x: max(abs(x[0]), abs(x[1])))
-        print(value)
+        print(sorted(value,
+                     key=lambda x: max(abs(x[0]), abs(x[1])),
+                     reverse=True))
