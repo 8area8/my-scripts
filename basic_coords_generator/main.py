@@ -7,7 +7,7 @@ from itertools import product
 
 
 def relative_coordinates(start=1, end=100):
-    """Return relative coordinates from 'start' to 'end'.
+    """Return the relative coordinates of a distance from (0, 0).
 
     We use manhattan distance.
     (thanks to Dan737)
