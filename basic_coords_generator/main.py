@@ -9,15 +9,20 @@ from itertools import product
 def relative_coordinates(start=1, end=100):
     """Return the relative coordinates of a distance from (0, 0).
 
-    We use manhattan distance.
+    Capture coordinates from 'start' to 'end' include.
+    Note: We use manhattan distance.
     (thanks to Dan737)
     """
-    for distance in range(start, end):
-        coordinates = set()
+    for distance in range(start, end + 1):
 
         for x in range(distance + 1):
             y = distance - x
 
-            coordinates.update(set(product((x, -x), (y, -y))))
+            for coordinates in set(product((x, -x), (y, -y))):
+                yield coordinates
 
-        yield coordinates
+
+def get_true_coordinates(coordinates, true_position):
+    """Get true coordinates."""
+    a, b = true_position
+    return ((x + a, y + b) for (x, y) in coordinates)
