@@ -23,6 +23,6 @@ def relative_coordinates(start=1, end=100):
 
 
 def get_true_coordinates(coordinates, true_position):
-    """Get true coordinates."""
+    """Get true coordinates from a position."""
     a, b = true_position
     return ((x + a, y + b) for (x, y) in coordinates)
